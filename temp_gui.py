@@ -1,0 +1,46 @@
+import tkinter as tk
+from tkinter import ttk
+
+def calculate_nutrition():
+    ingredients = input_text.get("1.0", tk.END).strip().split("\n")
+    num_servings = int(servings_spinbox.get())
+    # TODO -> Create new file for calculating nutritional info
+
+root = tk.Tk()
+root.title("Nutrition Calculator")
+root.geometry("800x400")
+
+root.columnconfigure(0, weight=1)
+root.columnconfigure(1, weight=1)
+root.rowconfigure(0, weight=0)
+root.rowconfigure(1, weight=1)
+root.rowconfigure(2, weight=0)
+
+input_label = tk.Label(root, text="Ingredients/Recipe", font=("Arial", 12))
+input_label.grid(row=0, column=0, sticky="nsew", padx=10, pady=10)
+
+input_label = tk.Label(root, text="Nutritional Information", font=("Arial", 12))
+input_label.grid(row=0, column=1, sticky="nsew", padx=10, pady=10)
+
+input_text = tk.Text(root, wrap="word", font=("Arial", 12))
+input_text.grid(row=1, column=0, sticky="nsew", padx=10, pady=10)
+
+output_text = tk.Text(root, wrap="word", font=("Arial", 12), state="normal")
+output_text.grid(row=1, column=1, sticky="nsew", padx=10, pady=10)
+
+# ------- Create a Frame to hold bottom functionality -------
+bottom_frame = ttk.Frame(root)
+bottom_frame.grid(row=2, column=0, columnspan=2, pady=10)
+
+servings_label = ttk.Label(bottom_frame, text="Servings:")
+servings_label.pack(side="left", padx=5)
+
+servings_spinbox = tk.Spinbox(bottom_frame, from_=1, to=20, width=5)
+servings_spinbox.pack(side="left", padx=10)
+servings_spinbox.delete(0, tk.END)
+servings_spinbox.insert(0, "1")  # default value
+
+calc_button = ttk.Button(bottom_frame, text="Calculate Nutrition", command=calculate_nutrition)
+calc_button.pack(side="left", padx=10)
+
+root.mainloop()

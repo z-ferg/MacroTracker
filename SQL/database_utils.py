@@ -31,6 +31,7 @@ def add_item_to_database(name, serving_size, serving_unit, calories, protein, ca
     my_db.close()
 
 def print_all_ids():
+    print("---------------------IDs---------------------")
     my_db = mysql.connector.connect(
         host="localhost",
         user="root",
@@ -46,6 +47,7 @@ def print_all_ids():
     my_db.close()
 
 def print_all_macros():
+    print("---------------------Macros---------------------")
     my_db = mysql.connector.connect(
         host="localhost",
         user="root",
@@ -65,5 +67,5 @@ def print_all_macros():
 #   ID, SERVING_SIZE, SERVING_UNIT, CALS, PROTEIN, CARBS, FAT, SUGAR, SATURATED_FAT
 #add_item_to_database("Heinz Ketchup", 1, "Tbsp", 10, 0, 1, 0, 1, 0)
 print_all_ids()
-print("-" * 80)
+print()
 print_all_macros()
