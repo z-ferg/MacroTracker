@@ -1,6 +1,6 @@
 import mysql.connector, inspect
 
-def add_item_to_database(name, serving_size, serving_unit, calories, protein, carbs, fat, sugar, saturated_fat):
+def add_item_to_database(name, s_sz, s_un, grams, t_fat, sat_f, tra_f, cho, sod, t_carbs, fiber, t_sugar, a_sugar, protein):
     arg_inspect=inspect.getargvalues(inspect.currentframe())
     args = list(arg_inspect.locals.values())   # Get all of the input data (preset in correct order)
     
@@ -17,7 +17,7 @@ def add_item_to_database(name, serving_size, serving_unit, calories, protein, ca
     
     temp_cursor.execute(f"INSERT INTO id_fetch (item_name, item_ID) VALUES (\'{args[0]}\', {id_num})")
     
-    insert_statement = "INSERT INTO macro_calculator_info (item_id, serving_size, serving_unit, calories, protein, carbs, fat, sugar, saturated_fat) VALUES ("
+    insert_statement = "INSERT INTO macro_calculator_info (item_id, serv_size, serv_unit, num_grams, calories, total_fat, satur_fat, trans_fat, cholesterol, sodium, total_carbs, fiber, total_sugars, added_sugars, protein) VALUES ("
     args[0] = id_num
     for i in range(len(args)):
         insert_statement += f'{args[i]}, ' if i != 2 else f'\'{args[i]}\', '
@@ -29,6 +29,9 @@ def add_item_to_database(name, serving_size, serving_unit, calories, protein, ca
 
     temp_cursor.close()
     my_db.close()
+
+def lookup_item(item_name):
+    pass
 
 def print_all_ids():
     print("---------------------IDs---------------------")
@@ -63,9 +66,6 @@ def print_all_macros():
     my_db.close()
 
 
-# FORMATTED IN
-#   ID, SERVING_SIZE, SERVING_UNIT, CALS, PROTEIN, CARBS, FAT, SUGAR, SATURATED_FAT
-#add_item_to_database("Heinz Ketchup", 1, "Tbsp", 10, 0, 1, 0, 1, 0)
 print_all_ids()
 print()
 print_all_macros()

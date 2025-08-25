@@ -10,21 +10,18 @@ CREATE TABLE id_fetch (
 
 CREATE TABLE macro_calculator_info (
     item_id INT NOT NULL,
-    serving_size FLOAT(10, 2),
-    serving_unit VARCHAR(10),
-    calories INT,
-    protein INT, 
-    carbs INT,
-    fat INT,
-    sugar INT,
-    saturated_fat INT,
+    serv_size FLOAT(10, 2),
+    serv_unit VARCHAR(10),
+    num_grams INT,
+    total_fat INT,
+    satur_fat INT,
+    trans_fat INT,
+    cholesterol INT,
+    sodium INT,
+    total_carbs INT,
+    fiber INT,
+    total_sugars INT,
+    added_sugars INT,
+    protein INT
     PRIMARY KEY (item_id)
 );
-
-INSERT INTO id_fetch (item_name, item_id)
-VALUES
-('Heinz Ketchup: Sugar Free', 0);
-
-INSERT INTO macro_calculator_info(item_id, serving_size, serving_unit, calories, protein, carbs, fat, sugar, saturated_fat)
-VALUES
-(0, 1, "Tbsp", 10, 0, 1, 0, 0, 0);
