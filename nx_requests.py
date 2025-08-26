@@ -1,4 +1,4 @@
-import requests
+import requests, json
 from thefuzz import fuzz
 
 food_query = "Banana"
@@ -14,10 +14,11 @@ headers = {
 response = requests.get(url=URL_INSTANT, headers=headers, params={"query": food_query})
 response.raise_for_status()
 top_result_name = response.json()["common"][0]["food_name"]
-print(top_result_name)
 
-# TODO -- Work on posting mechanics for the nutrition endpoint of nutritionix API
-response = requests.post(url=URL_ITEM, headers=headers, )
+
+headers['Content-Type'] = 'application/json'
+
+response = requests.post(url=URL_ITEM, headers=headers, json={"query": top_result_name})
 response.raise_for_status()
 nutrition_data = response.json()
 
