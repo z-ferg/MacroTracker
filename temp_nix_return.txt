@@ -20,3 +20,17 @@
 {'attr_id': 636, 'value': 18.88}, {'attr_id': 645, 'value': 0.0378}, {'attr_id': 646, 'value': 0.0861}], 'nix_brand_name': None, 'nix_brand_id': None, 'nix_item_name': None, 'nix_item_id': None, 'upc': None, 'consumed_at': '2025-08-26T14:47:34+00:00', 'metadata': {'is_raw_food': False}, 'source': 1, 'ndb_no': 9040, 'tags': {'item': 'banana', 'measure': None, 'quantity': '1.0', 'food_group': 3, 'tag_id': 399}, 'alt_measures': [{'serving_weight': 225, 'measure': 'cup, mashed', 'seq': 1, 'qty': 1}, {'serving_weight': 150, 'measure': 'cup, sliced', 'seq': 2, 'qty': 1}, {'serving_weight': 81, 'measure': 'extra small (less than 6" long)', 'seq': 3, 'qty': 1}, {'serving_weight': 101, 'measure': 'small (6" to 6-7/8" long)', 'seq': 4, 'qty': 1}, {'serving_weight': 118, 'measure': 'medium (7" to 7-7/8" long)', 'seq': 5, 'qty': 1}, {'serving_weight': 136, 'measure': 'large (8" to 8-7/8" long)', 'seq': 
 6, 'qty': 1}, {'serving_weight': 152, 'measure': 'extra large (9" or longer)', 'seq': 7, 'qty': 1}, {'serving_weight': 126, 'measure': 'NLEA serving', 'seq': 8, 'qty': 1}, {'serving_weight': 28.35, 'measure': 'oz', 'seq': 80, 
 'qty': 1}, {'serving_weight': 100, 'measure': 'g', 'seq': None, 'qty': 100}], 'lat': None, 'lng': None, 'meal_type': 1, 'photo': {'thumb': 'https://nix-tag-images.s3.amazonaws.com/399_thumb.jpg', 'highres': 'https://nix-tag-images.s3.amazonaws.com/399_highres.jpg', 'is_user_uploaded': False}, 'sub_recipe': None, 'class_code': None, 'brick_code': None, 'tag_id': None}]}
+
+'food_name': 'banana'
+'serving_qty': 1
+'serving_unit': 'medium (7" to 7-7/8" long)'
+'serving_weight_grams': 118
+'nf_calories': 105.02
+'nf_total_fat': 0.39
+'nf_saturated_fat': 0.13
+'nf_cholesterol': 0
+'nf_sodium': 1.18
+'nf_total_carbohydrate': 26.95
+'nf_dietary_fiber': 3.07
+'nf_sugars': 14.43
+'nf_protein': 1.29

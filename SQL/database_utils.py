@@ -1,6 +1,6 @@
 import mysql.connector, inspect
 
-def add_item_to_database(name, s_sz, s_un, grams, t_fat, sat_f, tra_f, cho, sod, t_carbs, fiber, t_sugar, a_sugar, protein):
+def add_item_to_database(name, s_sz=0, s_un="None", grams=0, t_fat=0, sat_f=0, tra_f=0, cho=0, sod=0, t_carbs=0, fiber=0, t_sugar=0, a_sugar=0, protein=0):
     arg_inspect=inspect.getargvalues(inspect.currentframe())
     args = list(arg_inspect.locals.values())   # Get all of the input data (preset in correct order)
     
