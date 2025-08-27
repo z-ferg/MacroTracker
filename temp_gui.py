@@ -19,6 +19,7 @@ menu.add_cascade(label="Misc", menu=subMenu)
 
 subMenu.add_command(label="Add to Database", command=None)
 subMenu.add_command(label="View Database", command=None)
+subMenu.add_command(label="View Saved Meals", command=None)
 
 root.columnconfigure(0, weight=1)
 root.columnconfigure(1, weight=1)
