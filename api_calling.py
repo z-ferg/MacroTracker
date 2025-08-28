@@ -19,12 +19,79 @@ def make_item_request(food_query):
 
     response = requests.post(url=URL_ITEM, headers=headers, json={"query": top_result_name})
     response.raise_for_status()
-    full_nutrition_data = response.json()["foods"][0]
+    d = response.json()["foods"][0]
     
-    full_nutrition_data.pop("full_nutrients")
-    full_nutrition_data.pop("alt_measures")
-    full_nutrition_data.pop("tags")
-    full_nutrition_data.pop("photo")
-    full_nutrition_data.pop("metadata")
+    d.pop("full_nutrients")
+    d.pop("alt_measures")
+    d.pop("tags")
+    d.pop("photo")
+    d.pop("metadata")
     
-    return full_nutrition_data
+    return api_ingredient(name=d["food_name"], s_qty=d["serving_qty"], s_unit=d["serving_unit"],
+                        grams=d["serving_weight_grams"],
+                        cals=d["nf_calories"],
+                        tot_fat=d["nf_total_fat"],
+                        sat_fat=d["nf_saturated_fat"],
+                        tra_fat=0,
+                        chol=d["nf_cholesterol"],
+                        sod=d["nf_sodium"],
+                        carbs=d["nf_total_carbohydrate"],
+                        fiber=d["nf_dietary_fiber"],
+                        sugars=d["nf_sugars"],
+                        add_sugars=0,
+                        protein=d["nf_protein"],
+                        )
+
+class api_ingredient():
+    def __init__ (self, name, s_qty=0, s_unit="None", grams=0, cals=0, tot_fat=0, sat_fat=0,
+                tra_fat = 0, chol=0, sod=0, carbs=0, fiber=0, sugars=0, add_sugars=0, protein=0):
+        self.name = name
+        self.s_qty = s_qty
+        self.s_unit = s_unit
+        self.grams = grams
+        self.cals = cals
+        self.tot_fat = tot_fat
+        self.sat_fat = sat_fat
+        self.tra_fat = tra_fat
+        self.chol = chol
+        self.sod = sod
+        self.carbs = carbs
+        self.fiber = fiber
+        self.sugars = sugars
+        self.add_sugars = add_sugars
+        self.protein = protein
+    
+    def __str__ (self):
+        s = ""
+        s += f'Item Name: \t\t{self.name}\n'
+        s += f'Serving Size: \t\t{self.s_qty}\n'
+        s += f'Serving Unit: \t\t{self.s_unit}\n'
+        s += f'Serving Weight: \t\t{self.grams}g\n'
+        s += f'Calories: \t\t{self.cals}\n'
+        s += f'Total Fat: \t\t{self.tot_fat}g\n'
+        s += f'Saturated Fat: \t\t{self.sat_fat}g\n'
+        s += f'Trans Fat: \t\t{self.tra_fat}g\n'
+        s += f'Cholesterol: \t\t{self.chol}mg\n'
+        s += f'Sodium: \t\t{self.sod}mg\n'
+        s += f'Total Carbs: \t\t{self.carbs}g\n'
+        s += f'Fiber: \t\t{self.fiber}g\n'
+        s += f'Total Sugars: \t\t{self.sugars}g\n'
+        s += f'Added Sugars: \t\t{self.add_sugars}g\n'
+        s += f'Protein: \t\t{self.protein}g\n'
+
+        return s
+
+"""
+'serving_qty': 1, 
+'serving_unit': 'large', 
+'serving_weight_grams': 50,
+'nf_calories': 71.5, 
+'nf_total_fat': 4.76,
+'nf_saturated_fat': 1.56, 
+'nf_cholesterol': 186, 
+'nf_sodium': 71,
+'nf_total_carbohydrate': 0.36,
+'nf_dietary_fiber': 0, 
+'nf_sugars': 0.19, 
+'nf_protein': 6.28,
+"""

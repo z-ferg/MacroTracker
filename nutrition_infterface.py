@@ -8,7 +8,9 @@ from api_calling import make_item_request
 def calculate_nutrition():
     ingredients = input_text.get("1.0", tk.END).strip().split("\n")
     num_servings = int(servings_spinbox.get())
+    output_text.config(state="normal")
     # TODO -> Create new file for calculating nutritional info
+    output_text.config(state="disabled")
 
 def add_item():
     item_viewer = tk.Tk()
@@ -33,13 +35,13 @@ def add_item():
     def term_print_anon():
         query = search_bar.get("1.0", tk.END).strip().split("\n")
         data = make_item_request(query)
-        msg = ""
-        
-        for key, val in data.items():
-            msg += f'{key}: {val}\n'
         
         value_output.config(state="normal")
-        value_output.insert(tk.END, msg + "\n")
+        
+        if len(value_output.get("1.0", tk.END)) != 0:
+            value_output.delete("1.0", tk.END)
+            
+        value_output.insert(tk.END, str(data) + "\n")
         value_output.config(state="disabled")
     
     search_button = tk.Button(search_frame, text="Search", command=term_print_anon)
@@ -86,6 +88,7 @@ input_text.grid(row=1, column=0, sticky="nsew", padx=10, pady=10)
 
 output_text = tk.Text(root, wrap="word", font=("Arial", 12), state="normal")
 output_text.grid(row=1, column=1, sticky="nsew", padx=10, pady=10)
+output_text.config(state="disabled")
 
 # ------- Create a Frame to hold bottom functionality -------
 bottom_frame = tk.Frame(root)
@@ -99,7 +102,7 @@ servings_spinbox.pack(side="left", padx=10)
 servings_spinbox.delete(0, tk.END)
 servings_spinbox.insert(0, "1")  # default value
 
-calc_button = tk.Button(bottom_frame, text="Calculate Nutrition", command=add_item)
+calc_button = tk.Button(bottom_frame, text="Calculate Nutrition", command=calculate_nutrition)
 calc_button.pack(side="left", padx=10)
 
 
