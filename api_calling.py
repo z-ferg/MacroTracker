@@ -80,18 +80,3 @@ class api_ingredient():
         s += f'Protein: \t\t{self.protein}g\n'
 
         return s
-
-"""
-'serving_qty': 1, 
-'serving_unit': 'large', 
-'serving_weight_grams': 50,
-'nf_calories': 71.5, 
-'nf_total_fat': 4.76,
-'nf_saturated_fat': 1.56, 
-'nf_cholesterol': 186, 
-'nf_sodium': 71,
-'nf_total_carbohydrate': 0.36,
-'nf_dietary_fiber': 0, 
-'nf_sugars': 0.19, 
-'nf_protein': 6.28,
-"""

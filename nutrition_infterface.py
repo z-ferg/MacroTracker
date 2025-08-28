@@ -34,7 +34,13 @@ def add_item():
     
     def term_print_anon():
         query = search_bar.get("1.0", tk.END).strip().split("\n")
-        data = make_item_request(query)
+        print()
+        print(query)
+        print()
+        if "." in query[0]:
+            data = pull_website_label(query[0])
+        else:
+            data = make_item_request(query)
         
         value_output.config(state="normal")
         
